@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'CoursePage.dart';
 import 'AboutPage.dart';
 import 'EventsPage.dart';
+import 'FullImageScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -11,8 +12,21 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('DBSECampus'),
-        leading: CircleAvatar(
-          backgroundImage: AssetImage('assets/images/logdbs.jpg'),
+        leading: GestureDetector(
+          onTap: () {
+            // Navigate to the FullImageScreen when the logo is tapped
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FullImageScreen(
+                  imagePath: 'assets/images/logdbs.jpg',
+                ),
+              ),
+            );
+          },
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/logdbs.jpg'),
+          ),
         ),
         actions: [
           IconButton(
